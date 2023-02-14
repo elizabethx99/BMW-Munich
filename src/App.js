@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  Routes,
+
+  Route,
+
+  Link
+} from "react-router-dom";
+import About from "./About";
+import Inventory from "./Inventory";
+import MPower from "./MPower";
+import "./App.css";
+
+
+function App (){
+  return(
+    <Router>
+    <nav>
+        <Link to ="/Inventory" className="link">Inventory</Link>
+        <Link to ="/About" className="link"> About Us</Link>
+        <Link to ="/MPower" className="link">M Power</Link>
+    </nav>
+
+    <Routes>
+      <Route path="/Inventory" element={<Inventory/>}/>
+      <Route path="/About" element={<About/>}/>
+      <Route path="/Mpower" element={<MPower/>}/>
+    </Routes>
+    </Router>
+  
+  )
+
+  
 }
+
+
+
+
 
 export default App;
